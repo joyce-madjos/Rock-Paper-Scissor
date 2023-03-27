@@ -75,3 +75,18 @@ function getComputerChoice() {
 			computer: sum_Computer,
 		}
 }
+
+let sum_P = 0;
+let sum_C = 0;
+let {player, computer} = game(sum_P, sum_C);
+console.log("The final score : " +  "\nComputer :" + computer + "\nPlayer :" + player);
+
+if (player > computer){
+   alert("Congratulations! You Won");
+}
+else if (player == computer){
+   alert("It's a draw");
+}
+else{
+   alert("You lose!");
+}
