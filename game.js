@@ -57,3 +57,21 @@ function getComputerChoice() {
      }
     }
  }
+
+ function game(sum_Player, sum_Computer){
+
+	for (let i = 0; i < 5; i++) {
+
+		let {score_P, score_C, result} = thePlay(getPlayerChoice(), getComputerChoice());
+
+		console.log(" Round " + i + "\n Computer " + score_C + "\n Player " + score_P + "\n Result " + result);
+		
+		sum_Player += score_P;
+		sum_Computer += score_C;	
+	}
+
+	return {
+			player: sum_Player,
+			computer: sum_Computer,
+		}
+}
