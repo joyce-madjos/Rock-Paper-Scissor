@@ -13,8 +13,15 @@ body{
 
 .container{
     display: block;
-    margin: 70px;
-    /* border: 2px solid black; */
+    margin: 50px;
+    border: 2px solid black;
+}
+
+.container-game{
+    display: flex;
+    margin: 100px;
+    border: 20px solid wheat;
+    border-radius: 50px;
 }
 
 .letsPlay{
@@ -34,7 +41,6 @@ body{
 
 .title > p{
     margin: 0 ;
-    
     font-size: 48px;
     /* border: 2px solid black; */
 }
@@ -47,3 +53,60 @@ body{
     font-size: 20px;
 }
 
+.zigzag {
+    height: auto;
+    width: 100%;
+    background: linear-gradient(150deg, #1a2634 6px, transparent 0) 0 5px, linear-gradient(-330deg, #1a2634 5px, red 0) 0 5px;
+    background-color: #1a2634;
+    background-position: right bottom;
+    background-repeat: repeat-y;
+    background-size: 15px 15px;
+ }
+
+
+.player{
+    background-color: #1a2634;
+    color: wheat;
+}
+
+.computer{
+    background-color: red;
+}
+
+.contents{
+    text-align: center;
+    width: 50%;
+    font-size: 50px;
+}
+
+.imagesPlayer  img{
+    display: flex;
+    width: 28%;
+    height: auto;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.imagesPlayer{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.container p{
+    margin-top: 0;
+}
+
+.font-for-result{
+    font-size: 30px;
+}
+
+.choice-text{
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+.result{
+    font-family: 'Recursive', sans-serif;
+    border: 2px dotted whitesmoke;
+    padding: 5px;
+}
