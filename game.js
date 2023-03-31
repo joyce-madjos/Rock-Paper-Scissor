@@ -1,4 +1,5 @@
 // The Rock Paper Scissor Game
+const prompt = require('prompt-sync')();
 
 function getComputerChoice() {
     let moves = ["rock", "scissor", "paper"];
@@ -82,11 +83,12 @@ let {player, computer} = game(sum_P, sum_C);
 console.log("The final score : " +  "\nComputer :" + computer + "\nPlayer :" + player);
 
 if (player > computer){
-   alert("Congratulations! You Won");
+   console.log("Congratulations! You Won");
 }
 else if (player == computer){
-   alert("It's a draw");
+   console.log("It's a draw");
 }
 else{
-   alert("You lose!");
+   console.log("You lose!");
 }
+
