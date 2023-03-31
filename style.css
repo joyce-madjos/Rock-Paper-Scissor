@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: 'Kanit', sans-serif;
+}
+
+.container{
+    display: block;
+    margin: 70px;
+    /* border: 2px solid black; */
+}
+
+.letsPlay{
+    /* border: 2px solid black; */
+   margin: 0 31%;
+   height: 300px;
+   width: auto;
+}
+
+.title{
+    display: flex;
+    /* border: 2px solid black; */
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.title > p{
+    margin: 0 ;
+    
+    font-size: 48px;
+    /* border: 2px solid black; */
+}
+
+.container > button{
+    margin: 5% 45%;
+    padding: 10px 20px;
+    background-color: #333333;
+    color: gold;
+    font-size: 20px;
+}
+
