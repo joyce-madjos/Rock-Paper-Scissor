@@ -1,94 +1,73 @@
 // The Rock Paper Scissor Game
-const prompt = require('prompt-sync')();
 
 function getComputerChoice() {
-    let moves = ["rock", "scissor", "paper"];
-    let randomChoice = Math.floor(Math.random() * 3);
-    return moves[randomChoice];
+  let moves = ["rock", "scissor", "paper"];
+  let randomChoice = Math.floor(Math.random() * 3);
+  return moves[randomChoice];
+}
+
+
+// Image
+let rockImage = document.getElementById("rockP");
+let paperImage = document.getElementById("paperP");
+let scissorImage = document.getElementById("scissorP");
+
+// Checkboxes
+let rockCheckBox = document.getElementById("rockPlayer");
+let paperCheckBox = document.getElementById("paperPlayer");
+let scissorCheckBox = document.getElementById("scissorPlayer");
+
+
+rockCheckBox.addEventListener("click", function() {
+   theClicks(rockCheckBox, rockImage);
+});
+
+paperCheckBox.addEventListener("click", function() {
+   theClicks(paperCheckBox, paperImage);
+});
+
+scissorCheckBox.addEventListener("click",  function() {
+   theClicks(scissorCheckBox, scissorImage);
+});
+
+function theClicks(checkBoxChoice, imageChoice) {
+   if (checkBoxChoice.checked == true) {
+      imageChoice.style.backgroundColor = "red";
+     var playerChoice = "scissor";
+   } else {
+      imageChoice.style.backgroundColor = "white";
+   }
  }
 
- function getPlayerChoice() {
-    let playerChoice = prompt("You choice?");
-    let lowerCaseString = playerChoice.toLowerCase();
-    return lowerCaseString;
- }
-
- let thePlay = (playerSelection, computerSelection) => {
-	
-    let playerScore = 0;
-    let computerScore = 0;
+let thePlay = (playerSelection, computerSelection) => {
  
-    if (playerSelection === "rock" && computerSelection === "paper") {
-       computerScore += 1;
-       return {
-         score_P: playerScore,
-         score_C: computerScore,
-         result: "You Lose",
-     }
-    } 
-    else if (playerSelection === "scissor" && computerSelection === "rock") {
-        computerScore += 1;
-        return {
-         score_P: playerScore,
-         score_C: computerScore,
-         result: "You Lose",
-     }
-    } 
-    else if ( playerSelection === "paper" && computerSelection === "scissor") {
-        computerScore += 1;
-        return {
-         score_P: playerScore,
-         score_C: computerScore,
-         result: "You Lose",
-     }
-    } 
-    else if (playerSelection === computerSelection) {
-     return {
-         score_P: playerScore,
-         score_C: computerScore,
-         result: "Draw",
-     }
-    } 
-    else {
-       playerScore += 1;
-       return {
-         score_P: playerScore,
-         score_C: computerScore,
-         result: "You win",
-     }
-    }
- }
+  if (playerSelection === "rock" && computerSelection === "paper") {
+      return "You Lose" ;
 
- function game(sum_Player, sum_Computer){
+  } else if (playerSelection === "scissor" && computerSelection === "rock") {
+      return "You Lose" ;
 
-	for (let i = 0; i < 5; i++) {
+  } else if (playerSelection === "paper" && computerSelection === "scissor") {
+      return "You Lose" ;
 
-		let {score_P, score_C, result} = thePlay(getPlayerChoice(), getComputerChoice());
+  } else if (playerSelection === computerSelection) {
+      return "Draw" ;
 
-		console.log(" Round " + i + "\n Computer " + score_C + "\n Player " + score_P + "\n Result " + result);
-		
-		sum_Player += score_P;
-		sum_Computer += score_C;	
-	}
+  } else {
+      return "You win" ;
 
-	return {
-			player: sum_Player,
-			computer: sum_Computer,
-		}
+  }
+};
+
+
+console.log(
+  "The final score : " + "\nComputer :" + computer + "\nPlayer :" + player
+);
+
+if (player > computer) {
+  console.log("Congratulations! You Won");
+} else if (player == computer) {
+  console.log("It's a draw");
+} else {
+  console.log("You lose!");
 }
-
-let sum_P = 0;
-let sum_C = 0;
-let {player, computer} = game(sum_P, sum_C);
-console.log("The final score : " +  "\nComputer :" + computer + "\nPlayer :" + player);
-
-if (player > computer){
-   console.log("Congratulations! You Won");
-}
-else if (player == computer){
-   console.log("It's a draw");
-}
-else{
-   console.log("You lose!");
-}
-

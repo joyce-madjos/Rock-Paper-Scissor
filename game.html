@@ -14,10 +14,23 @@
     <div class="container-game">
         <div class="player zigzag contents">
             <p>YOU</p>
-            <div class="imagesPlayer">
-                <img src="images/rock.svg" alt="rock">
-                <img src="images/paper.svg" alt="paper">
-                <img src="images/scissor.svg" alt="scissor">
+            <div id="playerImages" class="imagesPlayer">
+
+                <input type="checkbox" id="rockPlayer">
+                <label for="rockPlayer">
+                    <img id="rockP" src="images/rock.svg" alt="rock" >
+                </label> 
+
+                <input type="checkbox" id="paperPlayer">
+                <label for="paperPlayer">
+                    <img id="paperP" src="images/paper.svg" alt="paper">
+                </label> 
+                
+                <input type="checkbox" id="scissorPlayer">
+                <label for="scissorPlayer">
+                    <img id="scissorP" src="images/scissor.svg" alt="scissor">
+                </label>
+                
             </div>
             <span class="font-for-result choice-text">Your Choice:</span> 
             <span id="playerChoice" class="font-for-result result">CAT</span>
@@ -33,6 +46,6 @@
             <span id="computerChoice" class="font-for-result result">CAT</span>
     </div>
 <!-- https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css -->
-
+<script src="game.js"></script>
 </body>
 </html>

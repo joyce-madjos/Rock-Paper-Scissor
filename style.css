@@ -87,6 +87,15 @@ body{
     border-radius: 50%;
 }
 
+#rockPlayer {
+    /* display: flex; */
+    /* width: 50%; */
+    /* height: auto; */
+    background-color: white;
+    border-radius: 50%;
+    border: 4px solid pink;
+}
+
 .imagesPlayer{
     display: flex;
     justify-content: center;
@@ -110,3 +119,11 @@ body{
     border: 2px dotted whitesmoke;
     padding: 5px;
 }
+
+input{
+    display: none;
+}
+
+/* #playerImages > label >  img{
+    border: 10px solid pink;
+} */
