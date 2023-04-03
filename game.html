@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Kanit:wght@600&family=Recursive:wght@300&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Kanit:wght@600&family=Recursive:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <title>Game | Rock Paper Scissor</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container-game">
-        <div class="player zigzag contents">
-            <p>YOU</p>
-            <div id="playerImages" class="images imagesPlayer">
+      <div class="player zigzag contents">
+        <p>YOU</p>
+        <div id="playerImages" class="images imagesPlayer">
+          <input type="checkbox" id="rockPlayer" />
+          <label for="rockPlayer">
+            <img id="rockP" src="images/rock.svg" alt="rock" />
+          </label>
 
-                <input type="checkbox" id="rockPlayer">
-                <label for="rockPlayer">
-                    <img id="rockP" src="images/rock.svg" alt="rock" >
-                </label> 
+          <input type="checkbox" id="paperPlayer" />
+          <label for="paperPlayer">
+            <img id="paperP" src="images/paper.svg" alt="paper" />
+          </label>
 
-                <input type="checkbox" id="paperPlayer">
-                <label for="paperPlayer">
-                    <img id="paperP" src="images/paper.svg" alt="paper">
-                </label> 
-                
-                <input type="checkbox" id="scissorPlayer">
-                <label for="scissorPlayer">
-                    <img id="scissorP" src="images/scissor.svg" alt="scissor">
-                </label>
-                
-            </div>
-            <span class="font-for-result choice-text">Your Choice:</span> 
-            <span id="playerChoice" class="font-for-result result"> </span>
+          <input type="checkbox" id="scissorPlayer" />
+          <label for="scissorPlayer">
+            <img id="scissorP" src="images/scissor.svg" alt="scissor" />
+          </label>
         </div>
-        <div class="computer contents">
-            <p>COMPUTER</p>
-            <div class="images imagesComputer">
-                <img id="rockC" src="images/rock.svg" alt="rock">
-                <img id="paperC" src="images/paper.svg" alt="paper">
-                <img id="scissorC" src="images/scissor.svg" alt="scissor">
-            </div>
-            <span class="font-for-result choice-text">Computer's Choice:</span> 
-            <span id="computerChoice" class="font-for-result result"> </span>
+        <span class="font-for-result choice-text">Your Choice:</span>
+        <span id="playerChoice" class="font-for-result result"> </span>
+      </div>
+      <div class="computer contents">
+        <p>COMPUTER</p>
+        <div class="images imagesComputer">
+          <img id="rockC" src="images/rock.svg" alt="rock" />
+          <img id="paperC" src="images/paper.svg" alt="paper" />
+          <img id="scissorC" src="images/scissor.svg" alt="scissor" />
+        </div>
+        <span class="font-for-result choice-text">Computer's Choice:</span>
+        <span id="computerChoice" class="font-for-result result"> </span>
+      </div>
+      <span id="placeholderResultGame"></span>
     </div>
-    <span id="placeholderResultGame" ></span>  
-</div>
-<!-- https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css -->
-<script src="game.js"></script>
-<!-- fault tolerance or graceful degradation -->
-<noscript>You need to enable JavaScript to view the full site.</noscript>
-</body>
+    <!-- https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css -->
+    <script src="game.js"></script>
+    <!-- fault tolerance or graceful degradation -->
+    <noscript>You need to enable JavaScript to view the full site.</noscript>
+  </body>
 </html>
