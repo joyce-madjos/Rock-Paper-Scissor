@@ -1,12 +1,5 @@
 // The Rock Paper Scissor Game
 
-function getComputerChoice() {
-  let moves = ["rock", "scissor", "paper"];
-  let randomChoice = Math.floor(Math.random() * 3);
-  return moves[randomChoice];
-}
-
-
 // Player Image
 let rockImage = document.getElementById("rockP");
 let paperImage = document.getElementById("paperP");
@@ -26,26 +19,46 @@ let scissorCheckBox = document.getElementById("scissorPlayer");
 let textResultPlayer = document.getElementById("playerChoice");
 let textResultComputer = document.getElementById("computerChoice");
 
-// Computer's choice
-let computerChoice = getComputerChoice();
+// Result Image
 
-if(computerChoice === "rock"){
-  computerRockImage.style.backgroundColor = "blue";
-  textResultComputer.innerHTML = "ROCK";
+function displayResult() {
+  let img = document.createElement("img");
+  img.src = "http://www.google.com/intl/en_com/images/logo_plain.png";
+  let imageResult = document.getElementsByClassName("resultImage");
+  imageResult.style.display = "block";
+  imageResult.appendChild(img);
 }
-else if(computerChoice === "paper"){
-  computerPaperImage.style.backgroundColor = "blue";
-  textResultComputer.innerHTML = "PAPER";
+
+
+
+function getComputerChoice() {
+  let moves = ["rock", "scissor", "paper"];
+  let randomChoice = Math.floor(Math.random() * 3);
+  let computerChoice = moves[randomChoice];
+
+  if(computerChoice === "rock"){
+    computerRockImage.style.backgroundColor = "wheat";
+    textResultComputer.innerHTML = "ROCK";
+  }
+  else if(computerChoice === "paper"){
+    computerPaperImage.style.backgroundColor = "wheat";
+    textResultComputer.innerHTML = "PAPER";
+  }
+  else if(computerChoice === "scissor"){
+    computerScissorImage.style.backgroundColor = "wheat";
+    textResultComputer.innerHTML = "SCISSOR";
+  }
 }
-else if(computerChoice === "scissor"){
-  computerScissorImage.style.backgroundColor = "blue";
-  textResultComputer.innerHTML = "SCISSOR";
-}
+
+// Computer's choice
+
 
 
 rockCheckBox.addEventListener("click", function() {
    theClicks(rockCheckBox, rockImage);
    textResultPlayer.innerHTML = "ROCK";
+   getComputerChoice();
+   displayResult()
   //  paperCheckBox.disabled = true;
   //  scissorCheckBox.disabled = true;
 });
@@ -53,11 +66,13 @@ rockCheckBox.addEventListener("click", function() {
 paperCheckBox.addEventListener("click", function() {
    theClicks(paperCheckBox, paperImage);
    textResultPlayer.innerHTML = "PAPER";
+   getComputerChoice();
 });
 
 scissorCheckBox.addEventListener("click",  function() {
    theClicks(scissorCheckBox, scissorImage);
    textResultPlayer.innerHTML = "SCISSOR";
+   getComputerChoice();
 });
 
 function theClicks(checkBoxChoice, imageChoice) {

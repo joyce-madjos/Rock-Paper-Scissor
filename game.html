@@ -22,12 +22,10 @@
           <label for="rockPlayer">
             <img id="rockP" src="images/rock.svg" alt="rock" />
           </label>
-
           <input type="checkbox" id="paperPlayer" />
           <label for="paperPlayer">
             <img id="paperP" src="images/paper.svg" alt="paper" />
           </label>
-
           <input type="checkbox" id="scissorPlayer" />
           <label for="scissorPlayer">
             <img id="scissorP" src="images/scissor.svg" alt="scissor" />
@@ -46,7 +44,10 @@
         <span class="font-for-result choice-text">Computer's Choice:</span>
         <span id="computerChoice" class="font-for-result result"> </span>
       </div>
-      <span id="placeholderResultGame"></span>
+      <div class="resultImage">
+        <p>RESULT</p>
+      <img src="images/winner.jpg" alt="result of the game">
+      </div>
     </div>
     <!-- https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css -->
     <script src="game.js"></script>
