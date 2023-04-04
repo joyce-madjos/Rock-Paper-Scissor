@@ -11,25 +11,40 @@ let computerPaperImage = document.getElementById("paperC");
 let computerScissorImage = document.getElementById("scissorC");
 
 // Checkboxes
-let rockCheckBox = document.getElementById("rockPlayer");
-let paperCheckBox = document.getElementById("paperPlayer");
-let scissorCheckBox = document.getElementById("scissorPlayer");
+var rockCheckBox = document.getElementById("rockPlayer");
+var paperCheckBox = document.getElementById("paperPlayer");
+var scissorCheckBox = document.getElementById("scissorPlayer");
 
 // Placeholder for Result
 let textResultPlayer = document.getElementById("playerChoice");
 let textResultComputer = document.getElementById("computerChoice");
 
 // Result Image
+var image = document.createElement("img");
+var imageResult = document.getElementById("resultImage");
 
-function displayResult() {
-  let img = document.createElement("img");
-  img.src = "http://www.google.com/intl/en_com/images/logo_plain.png";
-  let imageResult = document.getElementsByClassName("resultImage");
+function displayResult(result) {
+
+  if (result == "win"){
+    image.src = "images/winner.gif";
+  }
+  else if (result == "lose"){
+    image.src = "images/lose.gif";
+  }
+  else{
+    image.src = "images/draw.gif";
+  }
   imageResult.style.display = "block";
-  imageResult.appendChild(img);
+  // image.style.width =  "150px";
+  // image.style.margin =  "0";
+  // image.style.height =  "150px";
+  image.alt = "result of the game";
+  imageResult.appendChild(image);
 }
 
-
+function undoDisplayResult(){
+  imageResult.style.display = "none";
+}
 
 function getComputerChoice() {
   let moves = ["rock", "scissor", "paper"];
@@ -48,72 +63,136 @@ function getComputerChoice() {
     computerScissorImage.style.backgroundColor = "wheat";
     textResultComputer.innerHTML = "SCISSOR";
   }
+
+  return computerChoice;
 }
 
-// Computer's choice
+function undoComputerChoice(){
+  let images = document.getElementsByClassName("computerImage");
+  for (let i = 0; i < images.length; i++) {
+    images[i].style.backgroundColor = "white";
+  }
+  textResultComputer.innerHTML = " ";
+  textResultPlayer.innerHTML = " ";
+}
 
-
-
-rockCheckBox.addEventListener("click", function() {
-   theClicks(rockCheckBox, rockImage);
-   textResultPlayer.innerHTML = "ROCK";
-   getComputerChoice();
-   displayResult()
-  //  paperCheckBox.disabled = true;
-  //  scissorCheckBox.disabled = true;
-});
-
-paperCheckBox.addEventListener("click", function() {
-   theClicks(paperCheckBox, paperImage);
-   textResultPlayer.innerHTML = "PAPER";
-   getComputerChoice();
-});
-
-scissorCheckBox.addEventListener("click",  function() {
-   theClicks(scissorCheckBox, scissorImage);
-   textResultPlayer.innerHTML = "SCISSOR";
-   getComputerChoice();
-});
-
-function theClicks(checkBoxChoice, imageChoice) {
-   if (checkBoxChoice.checked == true) {
-      imageChoice.style.backgroundColor = "red";
-     var playerChoice = "scissor";
-   } else {
-      imageChoice.style.backgroundColor = "white";
-
-   }
- }
-
-let thePlay = (playerSelection, computerSelection) => {
+function theGame (playerSelection, computerSelection) {
  
   if (playerSelection === "rock" && computerSelection === "paper") {
-      return "You Lose" ;
+      displayResult("lose");
 
   } else if (playerSelection === "scissor" && computerSelection === "rock") {
-      return "You Lose" ;
+    displayResult("lose");
 
   } else if (playerSelection === "paper" && computerSelection === "scissor") {
-      return "You Lose" ;
+    displayResult("lose");
 
   } else if (playerSelection === computerSelection) {
-      return "Draw" ;
+      displayResult("draw");
 
   } else {
-      return "You win" ;
+    displayResult("win");
 
   }
+
+  
 };
 
+function removeZigzag(verdict){
 
-console.log(
-  "The final score : " + "\nComputer :" + computer + "\nPlayer :" + player
-);
+  let zigzag = document.getElementById("player");
 
-if (player > computer) {
-  console.log("Congratulations! You Won");
-} else if (player == computer) {
-  console.log("It's a draw");
-} else {
-  console.log("You lose!");
+  if (verdict == "yes"){
+    zigzag.classList.remove("zigzag");
+  }
+  else if (verdict == "no"){
+    zigzag.classList.add("zigzag");
+  }
+    
 }
+
+rockCheckBox.addEventListener("click", () => {
+
+  if (rockCheckBox.checked == true) {
+    // change the background color to emphasize the player's choice
+    rockImage.style.backgroundColor = "red";
+    // disable other options
+    paperCheckBox.disabled = true;
+    scissorCheckBox.disabled = true;
+    // display computer's choice
+    let computerChoice = getComputerChoice();
+    theGame("rock", computerChoice);
+    textResultPlayer.innerHTML = "ROCK";
+    removeZigzag("yes");
+    
+ } else {
+    rockImage.style.backgroundColor = "white";
+    scissorCheckBox.disabled = false;
+    paperCheckBox.disabled = false;
+    undoComputerChoice();
+    undoDisplayResult();
+    removeZigzag("no");
+ }
+  
+});
+
+paperCheckBox.addEventListener("click",  () =>  {
+   
+   if (paperCheckBox.checked == true) {
+    // change the background color to emphasize the player's choice
+    paperImage.style.backgroundColor = "red";
+    // disable other options
+    rockCheckBox.disabled = true;
+    scissorCheckBox.disabled = true;
+    // display computer's choice
+    let computerChoice = getComputerChoice();
+    theGame("paper", computerChoice);
+    textResultPlayer.innerHTML = "PAPER";
+    removeZigzag("yes");
+ } else {
+    paperImage.style.backgroundColor = "white";
+    scissorCheckBox.disabled = false;
+    rockCheckBox.disabled = false;
+    undoComputerChoice();
+    undoDisplayResult();
+    removeZigzag("no");
+ }
+
+});
+
+scissorCheckBox.addEventListener("click",  () => {
+   
+  if (scissorCheckBox.checked == true) {
+    // change the background color to emphasize the player's choice
+    scissorImage.style.backgroundColor = "red";
+    // disable other options
+    paperCheckBox.disabled = true;
+    rockCheckBox.disabled = true;
+    // display computer's choice
+    let computerChoice = getComputerChoice();
+    theGame("scissor", computerChoice);
+    textResultPlayer.innerHTML = "SCISSOR";
+    removeZigzag("yes");
+ } else {
+    scissorImage.style.backgroundColor = "white";
+    paperCheckBox.disabled = false;
+    rockCheckBox.disabled = false;
+    undoComputerChoice();
+    undoDisplayResult();
+    removeZigzag("no");
+ }
+ 
+});
+
+
+// console.log(
+//   "The final score : " + "\nComputer :" + computer + "\nPlayer :" + player
+// );
+
+// if (player > computer) {
+//   console.log("Congratulations! You Won");
+// } else if (player == computer) {
+//   console.log("It's a draw");
+// } else {
+//   console.log("You lose!");
+// }
