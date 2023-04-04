@@ -13,14 +13,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: 100vh;
 }
 
 .container{
     display: block;
     margin: 50px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .container-game{
@@ -32,8 +32,8 @@ body{
 
 .letsPlay{
     /* border: 2px solid black; */
-   margin: 0 31%;
-   height: 300px;
+   /* margin: 0 10%; */
+   height: 100%;
    width: auto;
 }
 
@@ -52,7 +52,7 @@ body{
 }
 
 .container > button{
-    margin: 5% 45%;
+    margin: 5% 40%;
     padding: 10px 20px;
     background-color: #333333;
     color: gold;

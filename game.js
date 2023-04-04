@@ -23,28 +23,6 @@ let textResultComputer = document.getElementById("computerChoice");
 var image = document.createElement("img");
 var imageResult = document.getElementById("resultImage");
 
-function displayResult(result) {
-
-  if (result == "win"){
-    image.src = "images/winner.gif";
-  }
-  else if (result == "lose"){
-    image.src = "images/lose.gif";
-  }
-  else{
-    image.src = "images/draw.gif";
-  }
-  imageResult.style.display = "block";
-  // image.style.width =  "150px";
-  // image.style.margin =  "0";
-  // image.style.height =  "150px";
-  image.alt = "result of the game";
-  imageResult.appendChild(image);
-}
-
-function undoDisplayResult(){
-  imageResult.style.display = "none";
-}
 
 function getComputerChoice() {
   let moves = ["rock", "scissor", "paper"];
@@ -94,9 +72,32 @@ function theGame (playerSelection, computerSelection) {
     displayResult("win");
 
   }
-
   
 };
+
+function displayResult(result) {
+
+  if (result == "win"){
+    image.src = "images/winner.gif";
+  }
+  else if (result == "lose"){
+    image.src = "images/lose.gif";
+  }
+  else{
+    image.src = "images/draw.gif";
+  }
+  imageResult.style.display = "block";
+  // image.style.width =  "150px";
+  // image.style.margin =  "0";
+  // image.style.height =  "150px";
+  image.alt = "result of the game";
+  imageResult.appendChild(image);
+
+}
+
+function undoDisplayResult(){
+  imageResult.style.display = "none";
+}
 
 function removeZigzag(verdict){
 
@@ -111,6 +112,8 @@ function removeZigzag(verdict){
     
 }
 
+// Get player's choice
+
 rockCheckBox.addEventListener("click", () => {
 
   if (rockCheckBox.checked == true) {
@@ -122,6 +125,7 @@ rockCheckBox.addEventListener("click", () => {
     // display computer's choice
     let computerChoice = getComputerChoice();
     theGame("rock", computerChoice);
+
     textResultPlayer.innerHTML = "ROCK";
     removeZigzag("yes");
     
@@ -147,6 +151,7 @@ paperCheckBox.addEventListener("click",  () =>  {
     // display computer's choice
     let computerChoice = getComputerChoice();
     theGame("paper", computerChoice);
+
     textResultPlayer.innerHTML = "PAPER";
     removeZigzag("yes");
  } else {
@@ -171,6 +176,7 @@ scissorCheckBox.addEventListener("click",  () => {
     // display computer's choice
     let computerChoice = getComputerChoice();
     theGame("scissor", computerChoice);
+
     textResultPlayer.innerHTML = "SCISSOR";
     removeZigzag("yes");
  } else {
