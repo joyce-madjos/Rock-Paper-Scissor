@@ -74,6 +74,8 @@ body {
 .computer {
   background-color: red;
   width: 45%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 #resultImage {
