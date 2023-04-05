@@ -87,9 +87,6 @@ function displayResult(result) {
     image.src = "images/draw.gif";
   }
   imageResult.style.display = "block";
-  // image.style.width =  "150px";
-  // image.style.margin =  "0";
-  // image.style.height =  "150px";
   image.alt = "result of the game";
   imageResult.appendChild(image);
 
@@ -190,15 +187,3 @@ scissorCheckBox.addEventListener("click",  () => {
  
 });
 
-
-// console.log(
-//   "The final score : " + "\nComputer :" + computer + "\nPlayer :" + player
-// );
-
-// if (player > computer) {
-//   console.log("Congratulations! You Won");
-// } else if (player == computer) {
-//   console.log("It's a draw");
-// } else {
-//   console.log("You lose!");
-// }
